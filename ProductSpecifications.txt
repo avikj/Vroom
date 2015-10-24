@@ -1,0 +1,14 @@
+VRoom
+  A platform that allows educators to create and share virtual classes through a moderated group chat fashion.
+  Functionality
+    User can sign up as educator or student
+      Educator accounts
+        Create class with subject, difficulty
+        upload hw problems
+        set details such as timespan, curriculum, homework load
+      Student accounts
+        sign up for classes
+    Classes
+      Moderated chat room environment
+        Messages are sent to moderator (teacher), who can relay back to the whole class
+        Teacher can upload images
