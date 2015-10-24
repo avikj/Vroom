@@ -38,6 +38,9 @@ if (Meteor.isClient) {
       }else{
         return false;
       }
+    },
+    myClasses: function(){
+      return Classes.find({teacher: Meteor.user()._id});
     }
   });
   Template.account.events({
@@ -53,9 +56,7 @@ if (Meteor.isClient) {
         return false;
       }
     },
-    myClasses: function(){
-      return Classes.find({teacher: Meteor.user()._id}).fetch();
-    }
+
   });
   Template.createClass.events({
     "click #submitForm": function(){
