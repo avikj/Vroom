@@ -1,0 +1,29 @@
+<template name="account">
+  {{#if currentUser}}
+    <div class="row">
+      <div class="card col m6 offset-m3">
+        <h1>You are logged in as {{currentUserEmail}}!</h1>
+          <button class="btn waves-effect green" id="logout">Logout</button>
+      </div>
+    </div>
+    {{#if isEducator}}
+      <div class="row">
+        <div class="col m6 offset-m3">
+          <h4>Create class <a href="/create-class" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></h4>
+        </div>
+      </div>
+      <div class="row">
+        {{#each myClasses}}
+          <div class="card col m3">{{className}}</div>
+        {{/each}}
+      </div>
+    {{else}}
+    {{/if}}
+  {{else}}
+    <div class="row">
+      <div class="card col m6 offset-m3">
+        {{>loginSignup}}
+      </div>
+    </div>
+  {{/if}}
+</template>

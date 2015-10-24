@@ -1,6 +1,7 @@
 /* CSS declarations go here */
 card{
   text-align: center;
+  margin: 10px 10px 10px 10px;
 }
 navbar-fixed{
   position: fixed;
