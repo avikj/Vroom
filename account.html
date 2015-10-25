@@ -1,29 +1,101 @@
 <template name="account">
-  {{#if currentUser}}
-    <div class="row">
-      <div class="card col m6 offset-m3">
-        <h1>You are logged in as {{currentUserEmail}}!</h1>
-          <button class="btn waves-effect green" id="logout">Logout</button>
-      </div>
-    </div>
-    {{#if isEducator}}
-      <div class="row">
-        <div class="col m6 offset-m3">
-          <h4>Create class <a href="/create-class" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></h4>
+  {{#if currentUser}}<!--LOGGED IN-->
+          <div class="row">
+            <div class="card col m6 offset-m3">
+              <div class="card-content">
+                <h1>You are logged in as {{currentUserEmail}}!</h1>
+                <button class="btn waves-effect green" id="logout">Logout</button>
+              </div>
+            </div>
+          </div>
+          {{#if isEducator}}<!--TEACHR ACCOUNT-->
+                  <div class="row">
+                    <div class="col m6 offset-m3">
+                      <h4>Create class <a href="/create-class" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">add</i></a></h4>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="row col offset-m3 m6">
+                      {{#each myTeacherClasses}}
+                              <div class="card col m6">
+                                <div class="card-content">
+                                  {{className}}
+                                </div>
+                              </div>
+                      {{/each}}
+                    </div>
+
+                  </div>
+          {{else}}<!--student account-->
+                  <div class="row">
+                    <div class="row col offset-m3 m6">
+                      {{#each myStudentClasses}}
+                        <div class="card col m6">
+                          <div class="card-content">
+                            {{className}}
+                          </div>
+                        </div>
+                      {{/each}}
+                    </div>
+                  </div>
+                   <div class="row">
+        <div class="col m8 offset-l2">
+            <ul class="collapsible" data-collapsible="accordion">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">code</i>Computer Science</div>
+                    <div class="collapsible-body">
+                        <ul class="class-list">
+                            <section class="hover-link">
+                              {{#each CSclasses}}
+                                <li class="container hover-link">
+                                    <h5 class="title truncate"><b>{{className}}</b>{{description}}</h5>
+                                </li>
+                              {{/each}}
+                            </section>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">equalizer</i>Mathematics</div>
+                    <div class="collapsible-body">
+                        <ul class="class-list">
+                            <section class="hover-link">
+                              {{#each Mathclasses}}
+                                <li class="container hover-link">
+                                    <h5 class="title truncate"><b>{{className}}</b>{{description}}</h5>
+                                </li>
+                              {{/each}}
+                            </section>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">polymer</i>Science</div>
+                    <div class="collapsible-body">
+                        <ul class="class-list">
+                            <section class="hover-link">
+                              {{#each Sciclasses}}
+                                <li class="container hover-link">
+                                    <h5 class="title truncate"><b>{{className}}</b>{{description}}</h5>
+                                </li>
+                              {{/each}}
+                            </section>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
         </div>
-      </div>
-      <div class="row">
-        {{#each myClasses}}
-          <div class="card col m3">{{className}}</div>
-        {{/each}}
-      </div>
-    {{else}}
-    {{/if}}
-  {{else}}
-    <div class="row">
-      <div class="card col m6 offset-m3">
-        {{>loginSignup}}
-      </div>
     </div>
+          {{/if}}
+  {{else}}
+          <div class="row">
+            <div class="card col m6 offset-m3">
+              {{>loginSignup}}
+            </div>
+          </div>
   {{/if}}
+</template>
+
+<template name="findClass">
+
 </template>

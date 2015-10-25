@@ -10,7 +10,9 @@
          <h3 class="center-align title">Course Info</h3>
          <p class="center-align">{{description}}</p>
          <div class="center-align">
-             <a href="" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Join Class</a>
+            {{#if shouldShowButton}}
+                <div id="join-button" class="btn-large waves-effect waves-light teal lighten-1">Join Class</div>
+            {{/if}}
          </div>
      </div>
 </template>
